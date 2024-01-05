@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
 use App\Models\Note;
 use Illuminate\Http\Request;
 
 class NoteController extends Controller
 {
+    /* Display a listing of the resource.
     /**
-     * Display a listing of the resource.
      */
     public function index()
     {
-        //
+       return Inertia::render('Notes/Index', [
+        'notes' => Note::latest()->get()
+       ]); 
     }
 
     /**
